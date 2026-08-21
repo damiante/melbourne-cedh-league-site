@@ -1,27 +1,27 @@
 /* ========================================================================
    Melbourne cEDH League — tokens
+   Palette sampled directly from logo.png (navy / red / white split).
    ======================================================================== */
 
 :root {
-  --bg: #0d0a17;
-  --bg-raise: #171029;
-  --panel: #1c1430;
-  --line: #382a5c;
+  --navy: #003366;
+  --navy-deep: #002347;
+  --red: #cc0033;
+  --red-deep: #a3002a;
+  --chalk: #ffffff;
+  --paper: #eef0f4;
+  --ink: #14181f;
+  --ink-dim: #525b68;
+  --rule: #cbd2dc;
+  --on-navy-dim: rgba(255, 255, 255, 0.74);
 
-  --violet: #7c2ae8;
-  --violet-dim: #4d1c94;
-  --magenta: #f13fd6;
-  --acid: #b6ff3c;
-  --paper: #efeae0;
-  --paper-dim: #b9b4ab;
-
-  --font-display: "Bungee", system-ui, sans-serif;
-  --font-shade: "Bungee Shade", var(--font-display);
-  --font-body: "Space Grotesk", system-ui, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-display: "Big Shoulders Display", system-ui, sans-serif;
+  --font-body: "Barlow", system-ui, sans-serif;
+  --font-utility: "Barlow Semi Condensed", system-ui, sans-serif;
 
   --max-w: 72rem;
   --edge: clamp(1.25rem, 4vw, 3rem);
+  --radius: 14px;
 }
 
 /* ========================================================================
@@ -29,12 +29,12 @@
    ======================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { color-scheme: dark; }
+html { color-scheme: light; }
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
@@ -47,8 +47,9 @@ a { color: inherit; }
 img { max-width: 100%; display: block; }
 
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--acid);
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--red);
   outline-offset: 3px;
 }
 
@@ -60,15 +61,19 @@ button:focus-visible {
   }
 }
 
-/* Screen-printed grain overlay — cheap-riso texture over the whole page */
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+/* ========================================================================
+   Patch frame — the signature element: a rounded, keylined plaque, the way
+   the logo's own rectangle would sit on a jersey sleeve. Used for the header
+   lockup, the hero mark, roster monograms, and the More Info doc callout.
+   ======================================================================== */
+
+.patch-frame {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--navy);
+  border: 3px solid var(--chalk);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* ========================================================================
@@ -83,51 +88,56 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.9rem var(--edge);
-  background: rgba(13, 10, 23, 0.85);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--line);
+  padding: 0.75rem var(--edge);
+  background: var(--navy);
+  border-bottom: 3px solid var(--red);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
   text-decoration: none;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  background: var(--acid);
-  color: var(--bg);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  transform: rotate(-4deg);
-  box-shadow: 3px 3px 0 var(--magenta);
+.brand-patch {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+}
+
+.brand-patch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-text {
-  font-family: var(--font-mono);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.95rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--chalk);
 }
 
 .site-nav {
   display: flex;
-  gap: clamp(1rem, 3vw, 2rem);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  gap: clamp(0.9rem, 3vw, 1.75rem);
+  font-family: var(--font-utility);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .site-nav a {
   text-decoration: none;
+  color: var(--on-navy-dim);
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
+  transition: color 0.15s ease;
 }
 
 .site-nav a::after {
@@ -135,15 +145,40 @@ button:focus-visible {
   position: absolute;
   left: 0;
   right: 100%;
-  bottom: -2px;
-  height: 2px;
-  background: var(--acid);
+  bottom: -3px;
+  height: 3px;
+  background: var(--red);
   transition: right 0.2s ease;
 }
 
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
+  color: var(--chalk);
+}
+
 .site-nav a:hover::after,
-.site-nav a:focus-visible::after {
+.site-nav a:focus-visible::after,
+.site-nav a[aria-current="page"]::after {
   right: 0;
+}
+
+@media (max-width: 30rem) {
+  .site-header {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: center;
+    gap: 0.6rem 1.1rem;
+    font-size: 0.8rem;
+  }
+
+  .site-nav a {
+    white-space: nowrap;
+  }
 }
 
 /* ========================================================================
@@ -151,48 +186,62 @@ button:focus-visible {
    ======================================================================== */
 
 .hero {
-  padding: clamp(4rem, 12vw, 8rem) var(--edge) clamp(3rem, 8vw, 5rem);
+  padding: clamp(3rem, 9vw, 5.5rem) var(--edge) clamp(3.5rem, 9vw, 6rem);
   background:
-    radial-gradient(60% 50% at 15% 0%, rgba(124, 42, 232, 0.35), transparent 60%),
-    radial-gradient(50% 40% at 100% 20%, rgba(241, 63, 214, 0.18), transparent 60%),
-    var(--bg);
-  border-bottom: 1px solid var(--line);
+    linear-gradient(135deg, var(--navy) 46%, var(--red) 46%, var(--red) 50%, var(--navy) 50%) top / 100% 6px no-repeat,
+    var(--navy);
+  text-align: center;
 }
 
 .hero-inner {
-  max-width: var(--max-w);
+  max-width: 40rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-patch {
+  width: clamp(9rem, 28vw, 13rem);
+  margin-bottom: 2rem;
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  color: var(--acid);
-  letter-spacing: 0.12em;
+  font-family: var(--font-utility);
+  font-weight: 600;
+  color: var(--red);
+  background: var(--chalk);
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
 }
 
-h1.glitch {
-  font-family: var(--font-shade);
-  font-weight: 400;
-  font-size: clamp(2.4rem, 8vw, 5.5rem);
-  line-height: 1.02;
-  color: var(--paper);
+h1.nameplate {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--chalk);
   margin: 0 0 1.25rem;
-  max-width: 16ch;
 }
 
 .hero-sub {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: var(--paper-dim);
-  max-width: 42ch;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--on-navy-dim);
+  max-width: 38ch;
   margin-bottom: 2.25rem;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
@@ -204,58 +253,74 @@ h1.glitch {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 1.5rem;
-  font-family: var(--font-mono);
+  padding: 0.85rem 1.6rem;
+  font-family: var(--font-utility);
   font-weight: 700;
   font-size: 0.95rem;
-  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-decoration: none;
+  border-radius: 3px;
   border: 2px solid transparent;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .btn-primary {
-  background: var(--acid);
-  color: var(--bg);
-  box-shadow: 4px 4px 0 var(--magenta);
+  background: var(--red);
+  color: var(--chalk);
+  box-shadow: 0 3px 0 var(--red-deep);
 }
 
 .btn-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--magenta);
+  background: var(--red-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--red-deep);
 }
 
 .btn-primary:active {
-  transform: translate(0, 0);
-  box-shadow: 2px 2px 0 var(--magenta);
+  transform: translateY(0);
+  box-shadow: 0 1px 0 var(--red-deep);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--paper);
-  border-color: var(--line);
+  color: var(--chalk);
+  border-color: var(--on-navy-dim);
 }
 
 .btn-ghost:hover {
-  border-color: var(--acid);
-  color: var(--acid);
+  border-color: var(--chalk);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* On paper backgrounds, ghost buttons need dark ink instead of chalk */
+.section .btn-ghost {
+  color: var(--navy);
+  border-color: var(--rule);
+}
+
+.section .btn-ghost:hover {
+  border-color: var(--navy);
+  background: rgba(0, 51, 102, 0.06);
+}
+
+/* ========================================================================
+   Diagonal rule — the logo's white diagonal, restated as a section divider
+   ======================================================================== */
+
+.diagonal-rule {
+  height: 12px;
+  background: linear-gradient(
+    115deg,
+    var(--navy) 0%, var(--navy) 47%,
+    var(--chalk) 47%, var(--chalk) 53%,
+    var(--red) 53%, var(--red) 100%
+  );
 }
 
 /* ========================================================================
    Section scaffolding
    ======================================================================== */
-
-.divider {
-  height: 10px;
-  background-image: repeating-linear-gradient(
-    -55deg,
-    var(--violet),
-    var(--violet) 10px,
-    var(--magenta) 10px,
-    var(--magenta) 20px
-  );
-  opacity: 0.6;
-}
 
 .section {
   max-width: var(--max-w);
@@ -264,151 +329,331 @@ h1.glitch {
 }
 
 .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  color: var(--paper);
-  margin-bottom: 0.75rem;
+  font-weight: 800;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
   text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.section-title::before {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--red);
+  flex: none;
 }
 
 .section-lede {
-  color: var(--paper-dim);
+  color: var(--ink-dim);
   max-width: 50ch;
   margin-bottom: 2.5rem;
 }
 
 .loading {
-  font-family: var(--font-mono);
-  color: var(--paper-dim);
-}
-
-/* --- Glitch / misregistration heading effect -------------------------- */
-/* Echoes the screen-printed poster: duplicate ink layers, slightly
-   offset, in the accent colours. */
-
-.glitch {
-  position: relative;
-  display: inline-block;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
-.glitch::before {
-  color: var(--magenta);
-  transform: translate(3px, 2px);
-}
-
-.glitch::after {
-  color: var(--acid);
-  transform: translate(-3px, -2px);
+  font-family: var(--font-utility);
+  color: var(--ink-dim);
 }
 
 /* ========================================================================
-   About
+   About ("The League")
    ======================================================================== */
 
 .about-grid {
   display: grid;
-  gap: 2.5rem;
+  gap: 2.25rem;
 }
 
 .about-block {
-  border-left: 3px solid var(--violet);
+  border-left: 4px solid var(--red);
   padding-left: 1.5rem;
 }
 
 .about-block h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-utility);
   font-weight: 700;
   font-size: 1.05rem;
-  color: var(--acid);
+  color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   margin-bottom: 0.6rem;
 }
 
 .about-block p {
-  color: var(--paper-dim);
+  color: var(--ink-dim);
   max-width: 68ch;
   white-space: pre-line;
 }
 
 /* ========================================================================
-   Card grid (organisers + events)
+   Front Office (organisers)
    ======================================================================== */
 
-.card-grid {
+.roster-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 1.5rem;
 }
 
-.card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: 1.75rem;
+.roster-card {
+  background: var(--chalk);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  position: relative;
-  overflow: hidden;
+  gap: 0.6rem;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--violet), var(--magenta), var(--acid));
-}
-
-.card h3 {
+.roster-monogram {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  border-radius: 6px;
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.15rem;
-  color: var(--paper);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--chalk);
+  margin-bottom: 0.4rem;
 }
 
-.card .handle {
-  font-family: var(--font-mono);
-  color: var(--acid);
+.roster-card h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.roster-role {
+  font-family: var(--font-utility);
+  font-weight: 600;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.roster-handle {
+  font-family: var(--font-utility);
+  color: var(--ink-dim);
   font-size: 0.9rem;
 }
 
-.card p {
-  color: var(--paper-dim);
-  font-size: 0.95rem;
-  flex: 1;
-  white-space: pre-line;
-}
-
-.card .btn {
-  align-self: flex-start;
-  margin-top: 0.5rem;
-}
-
-.card-link {
+.roster-link {
   text-decoration: none;
-  font-family: var(--font-mono);
-  color: var(--paper);
-  border-bottom: 1px dashed var(--line);
+  font-family: var(--font-utility);
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 2px solid var(--rule);
   align-self: flex-start;
+  margin-top: 0.25rem;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.card-link:hover,
-.card-link:focus-visible {
-  color: var(--acid);
-  border-color: var(--acid);
+.roster-link:hover,
+.roster-link:focus-visible {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+/* ========================================================================
+   Schedule (events)
+   ======================================================================== */
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.schedule-row {
+  background: var(--chalk);
+  border: 1px solid var(--rule);
+  border-left: 5px solid var(--navy);
+  border-radius: 4px;
+  padding: 1.5rem 1.75rem;
+  display: grid;
+  grid-template-columns: 9rem 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.schedule-when {
+  font-family: var(--font-utility);
+  font-variant-numeric: tabular-nums;
+}
+
+.schedule-date {
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.95rem;
+}
+
+.schedule-venue {
+  color: var(--ink-dim);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+}
+
+.schedule-body h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.schedule-body p {
+  color: var(--ink-dim);
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+
+.schedule-row .btn {
+  justify-self: end;
+}
+
+@media (max-width: 42rem) {
+  .schedule-row {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .schedule-row .btn {
+    justify-self: start;
+  }
+}
+
+/* ========================================================================
+   More Info page
+   ======================================================================== */
+
+.page-hero {
+  padding: clamp(2.5rem, 7vw, 4rem) var(--edge);
+  background:
+    linear-gradient(135deg, var(--navy) 46%, var(--red) 46%, var(--red) 50%, var(--navy) 50%) top / 100% 6px no-repeat,
+    var(--navy);
+  text-align: center;
+}
+
+.page-hero .nameplate {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  text-transform: uppercase;
+  color: var(--chalk);
+  margin-bottom: 0.5rem;
+}
+
+.page-hero p {
+  color: var(--on-navy-dim);
+  max-width: 42ch;
+  margin: 0 auto;
+}
+
+.primer-grid {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.primer-block {
+  border-left: 4px solid var(--navy);
+  padding-left: 1.5rem;
+}
+
+.primer-block h3 {
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.6rem;
+}
+
+.primer-block p {
+  color: var(--ink-dim);
+  max-width: 68ch;
+  white-space: pre-line;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  background: var(--chalk);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.5rem;
+  font-family: var(--font-utility);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::before {
+  content: "";
+  flex: none;
+  width: 0.65rem;
+  height: 0.65rem;
+  background: var(--red);
+  transform: rotate(45deg);
+  transition: transform 0.15s ease;
+}
+
+.faq-item[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faq-item p {
+  padding: 0 1.5rem 1.25rem calc(1.5rem + 0.65rem + 0.75rem);
+  color: var(--ink-dim);
+  white-space: pre-line;
+}
+
+.doc-callout {
+  background: var(--navy);
+  border-radius: var(--radius);
+  border: 3px solid var(--chalk);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  padding: clamp(1.75rem, 5vw, 2.5rem);
+  text-align: center;
+}
+
+.doc-callout p {
+  color: var(--on-navy-dim);
+  max-width: 46ch;
+  margin: 0 auto 1.5rem;
+}
+
+.doc-callout .btn-primary {
+  box-shadow: 0 3px 0 var(--red-deep);
 }
 
 /* ========================================================================
@@ -418,8 +663,9 @@ h1.glitch {
 .site-footer {
   padding: 2rem var(--edge) 3rem;
   text-align: center;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--paper-dim);
-  border-top: 1px solid var(--line);
+  font-family: var(--font-utility);
+  font-size: 0.85rem;
+  color: var(--on-navy-dim);
+  background: var(--navy-deep);
+  border-top: 3px solid var(--red);
 }

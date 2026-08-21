@@ -1,11 +1,14 @@
-# Events list.
-# Each entry currently renders as a card with a button that deep-links into
-# the Discord channel for that event. Add more entries as more events exist.
+# Schedule (events list).
+# Each entry renders as a row with a button that deep-links into the Discord
+# channel for that event. Add more entries as more events exist.
+# `date` and `venue` are optional — shown in the left-hand column when set.
 # Write "description" as a folded scalar (">-") so long lines join into a
 # flowing paragraph rather than forcing line breaks on the page.
 
 events:
   - title: Weekly cEDH Pods
+    date: Ongoing — weekly
+    venue: See Discord for location
     description: >-
       Ongoing weekly competitive Commander pods. Check the channel for the
       next date, format notes, and sign-ups.

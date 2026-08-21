@@ -9,16 +9,22 @@ directly by GitHub Pages.
 Everything editable lives in `content/*.yaml`. Edit a file, commit, push —
 the page re-renders from it on load (no build/regeneration step required).
 
-- **`content/description.yaml`** — the "About" section. A list of
-  `{ title, body }` blocks, rendered in order. Add or remove blocks freely.
-- **`content/organisers.yaml`** — the organiser/host list. A list of
-  `{ name, discord_handle, discord_url }`. To get a stable `discord_url` for
-  someone, enable Developer Mode in Discord, right-click their name, "Copy
-  User ID", and use `https://discord.com/users/<id>`.
-- **`content/events.yaml`** — the event list. Currently one entry with a
-  deep link into the event's Discord channel
-  (`{ title, description, discord_url, cta_label }`). Add more entries as
-  more events show up; each renders as its own card with its own button.
+- **`content/description.yaml`** — the "The League" (About) section. A list
+  of `{ title, body }` blocks, rendered in order. Add or remove blocks freely.
+- **`content/organisers.yaml`** — the "Front Office" (organiser/host) list. A
+  list of `{ name, role, discord_handle, discord_url }` — `role` is optional.
+  To get a stable `discord_url` for someone, enable Developer Mode in
+  Discord, right-click their name, "Copy User ID", and use
+  `https://discord.com/users/<id>`.
+- **`content/events.yaml`** — the "Schedule" (event list). Each entry is
+  `{ title, date, venue, description, discord_url, cta_label }` — `date` and
+  `venue` are optional. Add more entries as more events show up; each
+  renders as its own row with its own Discord button.
+- **`content/more-info.yaml`** — the `info.html` page: `primer` (a list of
+  `{ title, body }` format-explainer blocks), `faq` (a list of
+  `{ question, answer }` pairs, rendered as an accordion), and `doc`
+  (`{ label, url, note }`) for the "open the rules doc" button. **`doc.url`
+  ships as a placeholder — swap it for the real Google Doc link.**
 
 YAML is parsed in the browser with a vendored copy of
 [js-yaml](https://github.com/nodeca/js-yaml) (`vendor/js-yaml.min.js`) — no
@@ -37,14 +43,21 @@ running them through Jekyll.
 
 ## Design notes
 
-The palette and type treatment are inspired by `aesthetic-vibe.jpg` (a gig
-poster) — neon violet/magenta/acid-green on near-black, with a
-screen-print "misregistration" effect on headings (offset colour layers
-behind the main text) standing in for the poster's grainy, off-register
-riso-print look. That reference image is someone else's artwork and isn't
-used as a site asset, only as design inspiration.
+The palette (`navy #003366`, `red #cc0033`, `white`) is sampled directly
+from `logo.png`, an MLB-style crest for the club. The whole page borrows
+its structural language from a sports league: a rounded, keylined "patch"
+frame (the signature element — used for the header lockup, hero mark,
+roster monograms, and the More Info doc callout) and a navy/white/red
+diagonal band as the section divider, echoing the logo's own diagonal
+split. `logo.png` lives at the repo root and is referenced directly by both
+pages — it's the client's own artwork, not a placeholder.
 
-Fonts: [Bungee / Bungee Shade](https://fonts.google.com/specimen/Bungee)
-for display type, [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk)
-for body copy, [Space Mono](https://fonts.google.com/specimen/Space+Mono)
-for labels — loaded from Google Fonts.
+Fonts: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
+for nameplate-style headings, [Barlow](https://fonts.google.com/specimen/Barlow)
+for body copy, [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed)
+for stat-label/utility text (nav, dates, handles) — loaded from Google Fonts.
+
+## Pages
+
+- `index.html` — The League (about), Front Office (organisers), Schedule (events).
+- `info.html` — Format Primer, FAQ, and the rules-doc button.

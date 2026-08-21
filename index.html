@@ -10,66 +10,68 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="grain" aria-hidden="true"></div>
-
   <header class="site-header">
-    <a class="brand" href="#top">
-      <span class="brand-mark" aria-hidden="true">M</span>
-      <span class="brand-text">MEL&nbsp;cEDH</span>
+    <a class="brand" href="index.html#top" aria-label="Melbourne cEDH League — home">
+      <span class="brand-patch patch-frame" aria-hidden="true"><img src="logo.png" alt="" /></span>
+      <span class="brand-text" aria-hidden="true">MCL</span>
     </a>
     <nav class="site-nav">
       <a href="#about">About</a>
-      <a href="#organisers">Organisers</a>
-      <a href="#events">Events</a>
+      <a href="#organisers">Front Office</a>
+      <a href="#events">Schedule</a>
+      <a href="info.html">More Info</a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="hero-inner">
+        <span class="hero-patch patch-frame" aria-hidden="true">
+          <img src="logo.png" alt="Melbourne cEDH League" />
+        </span>
         <p class="eyebrow">Melbourne, Australia — paper Magic</p>
-        <h1 class="glitch" data-text="MELBOURNE cEDH LEAGUE">MELBOURNE cEDH LEAGUE</h1>
+        <h1 class="nameplate">Melbourne cEDH League</h1>
         <p class="hero-sub">
           A community-run tournament scene for competitive Commander.
           Tight pods, honest brackets, no wasted turns.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#events">See events</a>
+          <a class="btn btn-primary" href="#events">See schedule</a>
           <a class="btn btn-ghost" href="#about">What is this?</a>
         </div>
       </div>
     </section>
 
-    <div class="divider" aria-hidden="true"></div>
+    <div class="diagonal-rule" aria-hidden="true"></div>
 
     <section id="about" class="section">
-      <h2 class="section-title glitch" data-text="About">About</h2>
+      <h2 class="section-title">The League</h2>
       <div id="about-content" class="about-grid">
         <p class="loading">Loading…</p>
       </div>
     </section>
 
-    <div class="divider" aria-hidden="true"></div>
+    <div class="diagonal-rule" aria-hidden="true"></div>
 
     <section id="organisers" class="section">
-      <h2 class="section-title glitch" data-text="Organisers">Organisers</h2>
+      <h2 class="section-title">Front Office</h2>
       <p class="section-lede">The people running the show. Say hi on Discord.</p>
-      <ul id="organisers-list" class="card-grid" role="list">
+      <ul id="organisers-list" class="roster-grid" role="list">
         <li class="loading">Loading…</li>
       </ul>
     </section>
 
-    <div class="divider" aria-hidden="true"></div>
+    <div class="diagonal-rule" aria-hidden="true"></div>
 
     <section id="events" class="section">
-      <h2 class="section-title glitch" data-text="Events">Events</h2>
+      <h2 class="section-title">Schedule</h2>
       <p class="section-lede">Everything runs through Discord — jump into a channel below.</p>
-      <ul id="events-list" class="card-grid" role="list">
+      <ul id="events-list" class="schedule-list" role="list">
         <li class="loading">Loading…</li>
       </ul>
     </section>

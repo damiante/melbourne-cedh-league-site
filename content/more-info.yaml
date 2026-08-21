@@ -1,0 +1,56 @@
+# More Info page content: format primer, FAQ, and the rules doc link.
+# Write body/answer text as folded scalars (">-") so long lines join into a
+# flowing paragraph rather than forcing line breaks on the page.
+
+primer:
+  - title: What is cEDH?
+    body: >-
+      Competitive EDH (cEDH) is Commander played to win. Four players build
+      100-card singleton decks around a legendary commander, but unlike
+      casual Commander, cEDH pods are optimised around fast, resilient
+      game plans — efficient mana, tight interaction, and combos that end
+      the game before it drags on.
+
+  - title: How games are run
+    body: >-
+      Pods are seated four to a table. Standard tournament rules apply:
+      shuffled decks, revealed on request, and judge calls settled by the
+      organiser on duty. Match structure and time limits are announced per
+      event in the Discord — check the pinned post in the event channel
+      before you sit down.
+
+  - title: Deck legality
+    body: >-
+      We follow the same banlist and card pool as the wider cEDH community.
+      If you're unsure whether a card or combo is legal, ask in Discord
+      before the event rather than at the table.
+
+faq:
+  - question: Do I need an existing cEDH deck to come along?
+    answer: >-
+      No — bring whatever you've got, even a first attempt. Playing against
+      genuinely competitive pods is the fastest way to find the weak points
+      in a decklist.
+
+  - question: Is there an entry fee?
+    answer: >-
+      This section is a placeholder — the organisers will confirm entry
+      costs (if any) per event in the Discord.
+
+  - question: Where do events happen?
+    answer: >-
+      Venue details are posted per event in the Discord channel linked from
+      the Schedule section on the home page.
+
+  - question: How do I get involved as an organiser?
+    answer: >-
+      Say hello in Discord — the Front Office is always happy to hear from
+      people who want to help run pods or judge.
+
+# Placeholder — swap in the real Google Doc link when it's ready.
+doc:
+  label: Open the rules doc
+  url: "https://docs.google.com/document/d/PLACEHOLDER/edit"
+  note: >-
+    The full ruleset, banlist notes, and tournament structure live in this
+    doc. It's the source of truth if anything here is out of date.
