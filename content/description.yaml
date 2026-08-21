@@ -1,0 +1,31 @@
+# About section content.
+# Each entry becomes one text block on the page, in order.
+# Add, remove, or reorder entries freely — the site re-renders from this file.
+#
+# Write body text as YAML folded scalars (">-", as used below): wrap lines
+# for readability in the source, they'll be joined into flowing paragraphs
+# on the page. Leave a blank line inside the block for a paragraph break.
+
+sections:
+  - title: What is Melbourne cEDH League?
+    body: >-
+      Melbourne cEDH League is a community-run tournament scene for competitive
+      Commander (cEDH) — the high-power, no-luck-required format where four
+      decks are trying to win, not just survive. We run regular paper events
+      around Melbourne for players who want their pods to be genuinely
+      competitive: tight decision-making, fast games, and opponents who are
+      also trying their hardest to win.
+
+  - title: What we're about
+    body: >-
+      No prize-wall theatrics, no politics-as-a-crutch. We care about a
+      well-run bracket, honest rules enforcement, and a scene where new
+      competitive players can find a pod at their level and climb. If you're
+      building a cEDH deck and looking for people to actually test it against,
+      you're in the right place.
+
+  - title: Getting involved
+    body: >-
+      Everything runs out of our Discord — that's where events are announced,
+      pods are formed, and results get posted. Say hello, check the events
+      below, and an organiser will point you at the next one.
