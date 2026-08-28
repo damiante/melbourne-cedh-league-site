@@ -1,0 +1,27 @@
+# Standing sessions — recurring weekly time/location slots, not one-off
+# events. Add more entries as more standing sessions exist.
+#
+# `location` is the venue's own name + a link to their site; `address` is
+# the street address + a link to the Google Maps pin. These are two
+# separate links on purpose — the shop's site and its map pin are
+# different URLs — both are optional and independently omittable.
+# Write "description" as a folded scalar (">-") so long lines join into a
+# flowing paragraph rather than forcing line breaks on the page.
+#
+# PLACEHOLDER — the location/address below are examples. Swap in the
+# league's real venue before going live.
+
+sessions:
+  - time: Saturdays, 2:00pm
+    title: Weekly Saturday Session
+    description: >-
+      Standing weekly competitive Commander pods. Check the channel for
+      format notes and sign-ups before you come down.
+    location:
+      name: Games Laboratory
+      url: "https://example.com"
+    address:
+      text: "123 Example St, Melbourne VIC"
+      url: "https://maps.google.com/?q=123+Example+St+Melbourne+VIC"
+    discord_url: "https://discordapp.com/channels/1396292459444572200/1401074763795009656"
+    cta_label: Open session channel

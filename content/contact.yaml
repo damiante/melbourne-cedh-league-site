@@ -1,0 +1,11 @@
+# Contact section.
+# `body` is a folded scalar (">-") so long lines join into a flowing
+# paragraph rather than forcing line breaks on the page.
+# `email` is rendered as a mailto: link — PLACEHOLDER, replace with the
+# league's real contact address before going live.
+
+heading: Get in touch
+body: >-
+  Questions about the league, want to help run a session, or just want to
+  say hello? Drop us a line — we're happy to hear from you.
+email: hello@melbournecedh.example

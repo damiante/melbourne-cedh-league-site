@@ -34,54 +34,71 @@
     });
   }
 
-  function renderOrganisers(data) {
-    const root = document.getElementById("organisers-list");
+  function renderContact(data) {
+    const root = document.getElementById("contact-content");
     if (!root) return;
     root.innerHTML = "";
-    const organisers = (data && data.organisers) || [];
-    organisers.forEach(function (person) {
-      const card = el("li", { className: "roster-card" });
-      const initial = (person.name || "?").trim().charAt(0).toUpperCase();
-      card.appendChild(el("span", { className: "roster-monogram", text: initial }));
-      card.appendChild(el("h3", { text: person.name || "" }));
-      if (person.role) {
-        card.appendChild(el("p", { className: "roster-role", text: person.role }));
-      }
-      card.appendChild(el("p", { className: "roster-handle", text: person.discord_handle || "" }));
-      if (person.discord_url) {
-        const link = el("a", { className: "roster-link", text: "Message on Discord →" });
-        link.href = person.discord_url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        card.appendChild(link);
-      }
-      root.appendChild(card);
-    });
+    const contact = data || {};
+    const block = el("div", { className: "about-block" });
+    block.appendChild(el("h3", { text: contact.heading || "" }));
+    if (contact.body) block.appendChild(el("p", { text: contact.body.trim() }));
+    if (contact.email) {
+      const link = el("a", { className: "contact-link", text: contact.email });
+      link.href = "mailto:" + contact.email;
+      block.appendChild(link);
+    }
+    root.appendChild(block);
   }
 
-  function renderEvents(data) {
-    const root = document.getElementById("events-list");
+  function renderSessions(data) {
+    const root = document.getElementById("sessions-list");
     if (!root) return;
     root.innerHTML = "";
-    const events = (data && data.events) || [];
-    events.forEach(function (event) {
-      const row = el("li", { className: "schedule-row" });
+    const sessions = (data && data.sessions) || [];
+    sessions.forEach(function (session) {
+      const row = el("li", { className: "session-row" });
 
-      const when = el("div", { className: "schedule-when" });
-      if (event.date) when.appendChild(el("p", { className: "schedule-date", text: event.date }));
-      if (event.venue) when.appendChild(el("p", { className: "schedule-venue", text: event.venue }));
+      const when = el("div", { className: "session-when" });
+      if (session.time) when.appendChild(el("p", { className: "session-time", text: session.time }));
       row.appendChild(when);
 
-      const body = el("div", { className: "schedule-body" });
-      body.appendChild(el("h3", { text: event.title || "" }));
-      if (event.description) {
-        body.appendChild(el("p", { text: event.description.trim() }));
+      const body = el("div", { className: "session-body" });
+      body.appendChild(el("h3", { text: session.title || "" }));
+      if (session.description) {
+        body.appendChild(el("p", { text: session.description.trim() }));
       }
+
+      const location = session.location || {};
+      const address = session.address || {};
+      if (location.name || address.text) {
+        const venue = el("p", { className: "session-venue" });
+        if (location.name) {
+          const locLink = el("a", { text: location.name });
+          if (location.url) {
+            locLink.href = location.url;
+            locLink.target = "_blank";
+            locLink.rel = "noopener noreferrer";
+          }
+          venue.appendChild(locLink);
+        }
+        if (address.text) {
+          if (venue.hasChildNodes()) venue.appendChild(document.createTextNode(" · "));
+          const addrLink = el("a", { text: address.text });
+          if (address.url) {
+            addrLink.href = address.url;
+            addrLink.target = "_blank";
+            addrLink.rel = "noopener noreferrer";
+          }
+          venue.appendChild(addrLink);
+        }
+        body.appendChild(venue);
+      }
+
       row.appendChild(body);
 
-      if (event.discord_url) {
-        const link = el("a", { className: "btn btn-primary", text: event.cta_label || "Open in Discord" });
-        link.href = event.discord_url;
+      if (session.discord_url) {
+        const link = el("a", { className: "btn btn-primary", text: session.cta_label || "Open in Discord" });
+        link.href = session.discord_url;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
         row.appendChild(link);
@@ -142,11 +159,11 @@
   }
 
   const tasks = [];
-  if (document.getElementById("about-content") || document.getElementById("organisers-list") || document.getElementById("events-list")) {
+  if (document.getElementById("about-content") || document.getElementById("contact-content") || document.getElementById("sessions-list")) {
     tasks.push(
       fetchYaml("content/description.yaml").then(renderAbout),
-      fetchYaml("content/organisers.yaml").then(renderOrganisers),
-      fetchYaml("content/events.yaml").then(renderEvents)
+      fetchYaml("content/contact.yaml").then(renderContact),
+      fetchYaml("content/sessions.yaml").then(renderSessions)
     );
   }
   if (document.getElementById("primer-content") || document.getElementById("faq-list") || document.getElementById("doc-content")) {
@@ -162,8 +179,8 @@
   Promise.all(tasks).catch(function (err) {
     console.error(err);
     showError("about-content", "Couldn't load content — check the console.");
-    showError("organisers-list", "Couldn't load content — check the console.");
-    showError("events-list", "Couldn't load content — check the console.");
+    showError("contact-content", "Couldn't load content — check the console.");
+    showError("sessions-list", "Couldn't load content — check the console.");
     showError("primer-content", "Couldn't load content — check the console.");
     showError("faq-list", "Couldn't load content — check the console.");
     showError("doc-content", "Couldn't load content — check the console.");

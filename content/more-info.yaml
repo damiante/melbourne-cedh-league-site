@@ -37,20 +37,20 @@ faq:
       This section is a placeholder — the organisers will confirm entry
       costs (if any) per event in the Discord.
 
-  - question: Where do events happen?
+  - question: Where do sessions happen?
     answer: >-
-      Venue details are posted per event in the Discord channel linked from
-      the Schedule section on the home page.
+      Each standing session is listed in the Sessions section on the home
+      page, with a link to the venue's site, a link to its Google Maps
+      pin, and the Discord channel for that group.
 
   - question: How do I get involved as an organiser?
     answer: >-
-      Say hello in Discord — the Front Office is always happy to hear from
-      people who want to help run pods or judge.
+      Say hello in Discord — we're always happy to hear from people who
+      want to help run sessions or judge.
 
-# Placeholder — swap in the real Google Doc link when it's ready.
 doc:
   label: Open the rules doc
-  url: "https://docs.google.com/document/d/PLACEHOLDER/edit"
+  url: "https://docs.google.com/document/d/1UqtFnYyeLiLrMHHbe2wfMZShzag6MD35rDeuzZjsS5A/edit?tab=t.0"
   note: >-
     The full ruleset, banlist notes, and tournament structure live in this
     doc. It's the source of truth if anything here is out of date.

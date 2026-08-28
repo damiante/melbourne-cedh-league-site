@@ -124,12 +124,21 @@ summary:focus-visible {
 
 .site-nav {
   display: flex;
+  align-items: center;
   gap: clamp(0.9rem, 3vw, 1.75rem);
   font-family: var(--font-utility);
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 1.1em;
+  background: var(--on-navy-dim);
+  opacity: 0.4;
+  flex: none;
 }
 
 .site-nav a {
@@ -178,6 +187,10 @@ summary:focus-visible {
 
   .site-nav a {
     white-space: nowrap;
+  }
+
+  .nav-divider {
+    display: none;
   }
 }
 
@@ -390,92 +403,34 @@ h1.nameplate {
   white-space: pre-line;
 }
 
-/* ========================================================================
-   Front Office (organisers)
-   ======================================================================== */
-
-.roster-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: 1.5rem;
-}
-
-.roster-card {
-  background: var(--chalk);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.roster-monogram {
-  width: 3rem;
-  height: 3rem;
-  display: grid;
-  place-items: center;
-  background: var(--navy);
-  border-radius: 6px;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.3rem;
-  color: var(--chalk);
-  margin-bottom: 0.4rem;
-}
-
-.roster-card h3 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--navy);
-  text-transform: uppercase;
-  line-height: 1.05;
-}
-
-.roster-role {
-  font-family: var(--font-utility);
-  font-weight: 600;
-  color: var(--red);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.85rem;
-}
-
-.roster-handle {
-  font-family: var(--font-utility);
-  color: var(--ink-dim);
-  font-size: 0.9rem;
-}
-
-.roster-link {
+.contact-link {
+  display: inline-block;
   text-decoration: none;
   font-family: var(--font-utility);
   font-weight: 600;
   color: var(--navy);
   border-bottom: 2px solid var(--rule);
-  align-self: flex-start;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.roster-link:hover,
-.roster-link:focus-visible {
+.contact-link:hover,
+.contact-link:focus-visible {
   color: var(--red);
   border-color: var(--red);
 }
 
 /* ========================================================================
-   Schedule (events)
+   Sessions (standing weekly slots)
    ======================================================================== */
 
-.schedule-list {
+.session-list {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-.schedule-row {
+.session-row {
   background: var(--chalk);
   border: 1px solid var(--rule);
   border-left: 5px solid var(--navy);
@@ -487,12 +442,12 @@ h1.nameplate {
   align-items: center;
 }
 
-.schedule-when {
+.session-when {
   font-family: var(--font-utility);
   font-variant-numeric: tabular-nums;
 }
 
-.schedule-date {
+.session-time {
   font-weight: 700;
   color: var(--red);
   text-transform: uppercase;
@@ -500,13 +455,27 @@ h1.nameplate {
   font-size: 0.95rem;
 }
 
-.schedule-venue {
+.session-venue {
   color: var(--ink-dim);
   font-size: 0.85rem;
-  margin-top: 0.2rem;
+  margin-top: 0.4rem;
 }
 
-.schedule-body h3 {
+.session-venue a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.session-venue a:hover,
+.session-venue a:focus-visible {
+  color: var(--navy);
+  text-decoration-color: var(--navy);
+}
+
+.session-body h3 {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.3rem;
@@ -515,23 +484,23 @@ h1.nameplate {
   margin-bottom: 0.4rem;
 }
 
-.schedule-body p {
+.session-body p {
   color: var(--ink-dim);
   font-size: 0.95rem;
   white-space: pre-line;
 }
 
-.schedule-row .btn {
+.session-row .btn {
   justify-self: end;
 }
 
 @media (max-width: 42rem) {
-  .schedule-row {
+  .session-row {
     grid-template-columns: 1fr;
     justify-items: start;
   }
 
-  .schedule-row .btn {
+  .session-row .btn {
     justify-self: start;
   }
 }

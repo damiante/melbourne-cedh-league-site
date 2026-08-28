@@ -11,20 +11,23 @@ the page re-renders from it on load (no build/regeneration step required).
 
 - **`content/description.yaml`** — the "The League" (About) section. A list
   of `{ title, body }` blocks, rendered in order. Add or remove blocks freely.
-- **`content/organisers.yaml`** — the "Front Office" (organiser/host) list. A
-  list of `{ name, role, discord_handle, discord_url }` — `role` is optional.
-  To get a stable `discord_url` for someone, enable Developer Mode in
-  Discord, right-click their name, "Copy User ID", and use
-  `https://discord.com/users/<id>`.
-- **`content/events.yaml`** — the "Schedule" (event list). Each entry is
-  `{ title, date, venue, description, discord_url, cta_label }` — `date` and
-  `venue` are optional. Add more entries as more events show up; each
-  renders as its own row with its own Discord button.
+- **`content/contact.yaml`** — the "Contact" section: `{ heading, body,
+  email }`. `email` renders as a `mailto:` link. **`email` ships as a
+  placeholder (`hello@melbournecedh.example`) — swap it for the real
+  contact address.**
+- **`content/sessions.yaml`** — the "Sessions" list (standing weekly slots,
+  not one-off events). Each entry is `{ time, title, description, location,
+  address, discord_url, cta_label }`. `location` is `{ name, url }` (the
+  venue's own site) and `address` is `{ text, url }` (the street address and
+  a Google Maps pin link) — both optional, and independent of each other.
+  Add more entries as more standing sessions exist; each renders as its own
+  row with its own Discord button. **The shipped entry is a placeholder
+  venue — swap in the league's real location.**
 - **`content/more-info.yaml`** — the `info.html` page: `primer` (a list of
   `{ title, body }` format-explainer blocks), `faq` (a list of
   `{ question, answer }` pairs, rendered as an accordion), and `doc`
-  (`{ label, url, note }`) for the "open the rules doc" button. **`doc.url`
-  ships as a placeholder — swap it for the real Google Doc link.**
+  (`{ label, url, note }`) for the "open the rules doc" button, linking to
+  the league's Google Doc.
 
 YAML is parsed in the browser with a vendored copy of
 [js-yaml](https://github.com/nodeca/js-yaml) (`vendor/js-yaml.min.js`) — no
@@ -46,11 +49,15 @@ running them through Jekyll.
 The palette (`navy #003366`, `red #cc0033`, `white`) is sampled directly
 from `logo.png`, an MLB-style crest for the club. The whole page borrows
 its structural language from a sports league: a rounded, keylined "patch"
-frame (the signature element — used for the header lockup, hero mark,
-roster monograms, and the More Info doc callout) and a navy/white/red
-diagonal band as the section divider, echoing the logo's own diagonal
-split. `logo.png` lives at the repo root and is referenced directly by both
-pages — it's the client's own artwork, not a placeholder.
+frame (the signature element — used for the header lockup, hero mark, and
+the More Info doc callout) and a navy/white/red diagonal band as the
+section divider, echoing the logo's own diagonal split. `logo.png` lives
+at the repo root and is referenced directly by both pages — it's the
+client's own artwork, not a placeholder.
+
+The header nav separates in-page anchors from the cross-page "More Info"
+link with a thin divider and a ↗ glyph, since it's the one nav item that
+actually leaves the page rather than scrolling to a section.
 
 Fonts: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
 for nameplate-style headings, [Barlow](https://fonts.google.com/specimen/Barlow)
@@ -59,5 +66,5 @@ for stat-label/utility text (nav, dates, handles) — loaded from Google Fonts.
 
 ## Pages
 
-- `index.html` — The League (about), Front Office (organisers), Schedule (events).
+- `index.html` — The League (about), Contact, Sessions (standing weekly slots).
 - `info.html` — Format Primer, FAQ, and the rules-doc button.
