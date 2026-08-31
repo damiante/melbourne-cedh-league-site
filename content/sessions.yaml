@@ -19,12 +19,10 @@
 # fixed-size square next to the description. `logo_alt` is its alt text
 # (default: empty, since the shop name is already shown as text nearby).
 # Leave `logo` unset to show an empty square until a logo is available.
-#
-# PLACEHOLDER — the location/address below are examples. Swap in the
-# league's real venue before going live.
 
-discord_url: "https://discordapp.com/channels/1396292459444572200/1401074763795009656"
-cta_label: Join the Discord
+
+discord_url: "https://discordapp.com/channels/1396292459444572200/1398489361028485216"
+cta_label: Discord Schedule channel
 
 sessions:
   - time: Wednesday, 5:00pm - 10:00pm
