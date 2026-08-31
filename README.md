@@ -4,6 +4,18 @@ Static landing page for Melbourne's competitive Commander (cEDH) tournament
 scene. Plain HTML/CSS/JS, no build step, no backend — designed to be served
 directly by GitHub Pages.
 
+## Testing locally
+
+Content is loaded via `fetch()`, which browsers block on `file://` — so
+opening `index.html` directly won't render the YAML content. Serve the
+directory over HTTP instead:
+
+```sh
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
 ## Editing content
 
 Everything editable lives in `content/*.yaml`. Edit a file, commit, push —
@@ -15,14 +27,19 @@ the page re-renders from it on load (no build/regeneration step required).
   email }`. `email` renders as a `mailto:` link. **`email` ships as a
   placeholder (`hello@melbournecedh.example`) — swap it for the real
   contact address.**
-- **`content/sessions.yaml`** — the "Sessions" list (standing weekly slots,
-  not one-off events). Each entry is `{ time, title, description, location,
-  address, discord_url, cta_label }`. `location` is `{ name, url }` (the
-  venue's own site) and `address` is `{ text, url }` (the street address and
-  a Google Maps pin link) — both optional, and independent of each other.
-  Add more entries as more standing sessions exist; each renders as its own
-  row with its own Discord button. **The shipped entry is a placeholder
-  venue — swap in the league's real location.**
+- **`content/sessions.yaml`** — the "Sessions" section. Top-level
+  `discord_url` + `cta_label` render as the single "Join the Discord"
+  button in the section heading — there's one league Discord, so it's not
+  repeated per session. `sessions` is a list of standing weekly slots (not
+  one-off events), each `{ time, title, description, location, address,
+  logo, logo_alt }`. `location` is `{ name, url }` (the venue's own site)
+  and `address` is `{ text, url }` (the street address and a Google Maps
+  pin link) — both optional, and independent of each other. `logo` is an
+  optional path/URL to the hosting shop's icon, shown in a fixed square
+  (fitted, not stretched); leave unset to show an empty placeholder
+  square. Add more entries as more standing sessions exist; each renders
+  as its own card. **The shipped entry is a placeholder venue — swap in
+  the league's real location.**
 - **`content/more-info.yaml`** — the `info.html` page: `primer` (a list of
   `{ title, body }` format-explainer blocks), `faq` (a list of
   `{ question, answer }` pairs, rendered as an accordion), and `doc`

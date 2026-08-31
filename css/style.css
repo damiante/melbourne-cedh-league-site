@@ -341,6 +341,19 @@ h1.nameplate {
   padding: clamp(3rem, 8vw, 5rem) var(--edge);
 }
 
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-head .section-lede {
+  margin-bottom: 0;
+}
+
 .section-title {
   display: flex;
   align-items: center;
@@ -436,23 +449,48 @@ h1.nameplate {
   border-left: 5px solid var(--navy);
   border-radius: 4px;
   padding: 1.5rem 1.75rem;
-  display: grid;
-  grid-template-columns: 9rem 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-}
-
-.session-when {
-  font-family: var(--font-utility);
-  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .session-time {
+  font-family: var(--font-utility);
+  font-variant-numeric: tabular-nums;
   font-weight: 700;
   color: var(--red);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-size: 0.95rem;
+}
+
+.session-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.session-logo {
+  flex-shrink: 0;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.session-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.session-body {
+  min-width: 0;
 }
 
 .session-venue {
@@ -490,18 +528,9 @@ h1.nameplate {
   white-space: pre-line;
 }
 
-.session-row .btn {
-  justify-self: end;
-}
-
-@media (max-width: 42rem) {
-  .session-row {
-    grid-template-columns: 1fr;
-    justify-items: start;
-  }
-
-  .session-row .btn {
-    justify-self: start;
+@media (max-width: 26rem) {
+  .session-main {
+    flex-direction: column;
   }
 }
 

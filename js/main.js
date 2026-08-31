@@ -51,6 +51,18 @@
   }
 
   function renderSessions(data) {
+    const cta = document.getElementById("sessions-cta");
+    if (cta) {
+      cta.innerHTML = "";
+      if (data && data.discord_url) {
+        const link = el("a", { className: "btn btn-primary", text: data.cta_label || "Open in Discord" });
+        link.href = data.discord_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        cta.appendChild(link);
+      }
+    }
+
     const root = document.getElementById("sessions-list");
     if (!root) return;
     root.innerHTML = "";
@@ -58,9 +70,18 @@
     sessions.forEach(function (session) {
       const row = el("li", { className: "session-row" });
 
-      const when = el("div", { className: "session-when" });
-      if (session.time) when.appendChild(el("p", { className: "session-time", text: session.time }));
-      row.appendChild(when);
+      if (session.time) row.appendChild(el("p", { className: "session-time", text: session.time }));
+
+      const main = el("div", { className: "session-main" });
+
+      const logo = el("div", { className: "session-logo" });
+      if (session.logo) {
+        const img = el("img", {});
+        img.src = session.logo;
+        img.alt = session.logo_alt || "";
+        logo.appendChild(img);
+      }
+      main.appendChild(logo);
 
       const body = el("div", { className: "session-body" });
       body.appendChild(el("h3", { text: session.title || "" }));
@@ -94,15 +115,8 @@
         body.appendChild(venue);
       }
 
-      row.appendChild(body);
-
-      if (session.discord_url) {
-        const link = el("a", { className: "btn btn-primary", text: session.cta_label || "Open in Discord" });
-        link.href = session.discord_url;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        row.appendChild(link);
-      }
+      main.appendChild(body);
+      row.appendChild(main);
 
       root.appendChild(row);
     });

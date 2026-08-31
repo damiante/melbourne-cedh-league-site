@@ -1,6 +1,13 @@
 # Standing sessions — recurring weekly time/location slots, not one-off
 # events. Add more entries as more standing sessions exist.
 #
+# `discord_url` + `cta_label` are section-level, not per-session — there's
+# one league Discord, so the "join" button lives once in the Sessions
+# section heading rather than repeated on every session.
+#
+# Each session is a shop hosting a standing slot: `time`, `title`,
+# `description`, `location`, `address`, `logo`, `logo_alt`.
+#
 # `location` is the venue's own name + a link to their site; `address` is
 # the street address + a link to the Google Maps pin. These are two
 # separate links on purpose — the shop's site and its map pin are
@@ -8,20 +15,51 @@
 # Write "description" as a folded scalar (">-") so long lines join into a
 # flowing paragraph rather than forcing line breaks on the page.
 #
+# `logo` is an optional path/URL to the hosting shop's icon, shown in a
+# fixed-size square next to the description. `logo_alt` is its alt text
+# (default: empty, since the shop name is already shown as text nearby).
+# Leave `logo` unset to show an empty square until a logo is available.
+#
 # PLACEHOLDER — the location/address below are examples. Swap in the
 # league's real venue before going live.
 
+discord_url: "https://discordapp.com/channels/1396292459444572200/1401074763795009656"
+cta_label: Join the Discord
+
 sessions:
-  - time: Saturdays, 2:00pm
-    title: Weekly Saturday Session
+  - time: Wednesday, 5:00pm - 10:00pm
+    title: Shuffle 'n' Cut Wednesdays
     description: >-
-      Standing weekly competitive Commander pods. Check the channel for
-      format notes and sign-ups before you come down.
+      Wednesday evening cEDH
     location:
-      name: Games Laboratory
-      url: "https://example.com"
+      name: Shuffle 'n' Cut Hobbies & Games
+      url: "https://shuffleandcutgames.com/"
     address:
-      text: "123 Example St, Melbourne VIC"
-      url: "https://maps.google.com/?q=123+Example+St+Melbourne+VIC"
-    discord_url: "https://discordapp.com/channels/1396292459444572200/1401074763795009656"
-    cta_label: Open session channel
+      text: "243A Swan Street, Richmond, Melbourne 3121"
+      url: "https://maps.app.goo.gl/Wh88odr87h8g5FQB9"
+    logo: "assets/shuffle-n-cut.png"
+    logo_alt: ""
+  - time: Thursday, 5:00pm - 10:00pm
+    title: Games Portal Thursdays
+    description: >-
+      Thursday evening cEDH
+    location:
+      name: Games Portal
+      url: "https://gamesportal.com.au/"
+    address:
+      text: "1-5 Station St, Mitcham VIC 3132"
+      url: "https://maps.app.goo.gl/9QEqZhdcUohUPCgC8"
+    logo: "assets/games-portal.png"
+    logo_alt: ""
+  - time: Saturday, 12:00pm - 7:00pm
+    title: Shuffle 'n' Cut Saturdays
+    description: >-
+      Saturday afternoon cEDH
+    location:
+      name: Shuffle 'n' Cut Hobbies & Games
+      url: "https://shuffleandcutgames.com/"
+    address:
+      text: "243A Swan Street, Richmond, Melbourne 3121"
+      url: "https://maps.app.goo.gl/Wh88odr87h8g5FQB9"
+    logo: "assets/shuffle-n-cut.png"
+    logo_alt: ""
