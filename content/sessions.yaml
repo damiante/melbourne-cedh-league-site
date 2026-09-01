@@ -47,8 +47,8 @@ sessions:
     address:
       text: "720 Mt Alexander Rd, Moonee Ponds VIC 3039"
       url: "https://maps.app.goo.gl/f7SseT2kRfChL7ki7"
-    logo: "assets/placeholder-logo.png"
-    logo_alt: "A placeholder logo image"
+    logo: "assets/grand-j-games.webp"
+    logo_alt: "The logo for Grand J Games"
   - time: Wednesday, 5:00pm - 10:00pm
     title: Shuffle 'n' Cut Wednesdays
     description: >-
