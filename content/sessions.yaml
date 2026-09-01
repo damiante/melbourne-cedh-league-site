@@ -25,6 +25,30 @@ discord_url: "https://discordapp.com/channels/1396292459444572200/13984893610284
 cta_label: Discord Schedule channel
 
 sessions:
+  - time: Monday, 5:00pm - 10:00pm
+    title: Plenty of Games Mondays
+    description: >-
+      Monday evening cEDH
+    location:
+      name: Plenty of Games
+      url: "https://plentyofgames.com.au/"
+    address:
+      text: "Level 1/278 Collins St, Melbourne VIC 3000"
+      url: "https://maps.app.goo.gl/ZFkmSR8feksgwVH36"
+    logo: "assets/placeholder-logo.png"
+    logo_alt: "A placeholder logo image"
+  - time: Tuesday, 5:00pm - 10:00pm
+    title: Grand J Games Tuesdays
+    description: >-
+      Tuesday evening cEDH
+    location:
+      name: Grand J Games
+      url: "https://grandjgames.com/"
+    address:
+      text: "720 Mt Alexander Rd, Moonee Ponds VIC 3039"
+      url: "https://maps.app.goo.gl/f7SseT2kRfChL7ki7"
+    logo: "assets/placeholder-logo.png"
+    logo_alt: "A placeholder logo image"
   - time: Wednesday, 5:00pm - 10:00pm
     title: Shuffle 'n' Cut Wednesdays
     description: >-
@@ -36,7 +60,7 @@ sessions:
       text: "243A Swan Street, Richmond, Melbourne 3121"
       url: "https://maps.app.goo.gl/Wh88odr87h8g5FQB9"
     logo: "assets/shuffle-n-cut.png"
-    logo_alt: ""
+    logo_alt: "The logo for Shuffle 'n' Cut Hobbies & Games"
   - time: Thursday, 5:00pm - 10:00pm
     title: Games Portal Thursdays
     description: >-
@@ -48,7 +72,7 @@ sessions:
       text: "1-5 Station St, Mitcham VIC 3132"
       url: "https://maps.app.goo.gl/9QEqZhdcUohUPCgC8"
     logo: "assets/games-portal.png"
-    logo_alt: ""
+    logo_alt: "The logo for Games Portal"
   - time: Saturday, 12:00pm - 7:00pm
     title: Shuffle 'n' Cut Saturdays
     description: >-
@@ -60,4 +84,4 @@ sessions:
       text: "243A Swan Street, Richmond, Melbourne 3121"
       url: "https://maps.app.goo.gl/Wh88odr87h8g5FQB9"
     logo: "assets/shuffle-n-cut.png"
-    logo_alt: ""
+    logo_alt: "The logo for Shuffle 'n' Cut Hobbies & Games"
