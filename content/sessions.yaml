@@ -35,8 +35,8 @@ sessions:
     address:
       text: "Level 1/278 Collins St, Melbourne VIC 3000"
       url: "https://maps.app.goo.gl/ZFkmSR8feksgwVH36"
-    logo: "assets/placeholder-logo.png"
-    logo_alt: "A placeholder logo image"
+    logo: "assets/plenty-of-games.png"
+    logo_alt: "The logo for Plenty of Games"
   - time: Tuesday, 5:00pm - 10:00pm
     title: Grand J Games Tuesdays
     description: >-
