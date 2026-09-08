@@ -201,7 +201,7 @@ summary:focus-visible {
 .hero {
   padding: clamp(3rem, 9vw, 5.5rem) var(--edge) clamp(3.5rem, 9vw, 6rem);
   background:
-    linear-gradient(135deg, var(--navy) 46%, var(--red) 46%, var(--red) 50%, var(--navy) 50%) top / 100% 6px no-repeat,
+    linear-gradient(135deg, var(--navy) 48%, var(--red) 48%, var(--red) 52%, var(--navy) 52%) top / 100% 6px no-repeat,
     var(--navy);
   text-align: center;
 }
@@ -541,7 +541,7 @@ h1.nameplate {
 .page-hero {
   padding: clamp(2.5rem, 7vw, 4rem) var(--edge);
   background:
-    linear-gradient(135deg, var(--navy) 46%, var(--red) 46%, var(--red) 50%, var(--navy) 50%) top / 100% 6px no-repeat,
+    linear-gradient(135deg, var(--navy) 48%, var(--red) 48%, var(--red) 52%, var(--navy) 52%) top / 100% 6px no-repeat,
     var(--navy);
   text-align: center;
 }

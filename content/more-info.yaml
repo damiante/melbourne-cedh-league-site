@@ -5,11 +5,13 @@
 primer:
   - title: What is cEDH?
     body: >-
-      Competitive EDH (cEDH) is Commander played to win. Four players build
-      100-card singleton decks around a legendary commander, but unlike
-      casual Commander, cEDH pods are optimised around fast, resilient
-      game plans — efficient mana, tight interaction, and combos that end
-      the game before it drags on.
+      Competitive EDH (cEDH) is Commander played to win. Four players build 
+      100-card singleton decks around a legendary commander, but unlike casual 
+      Commander, cEDH pods are optimised around fast, resilient game plans — 
+      efficient mana, tight interaction, and combos that end the game before 
+      it drags on. We folllow rules as written and the MTRA 
+      (https://topdeck.gg/mtr-ipg-addendum)
+
 
   - title: How games are run
     body: >-
