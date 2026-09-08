@@ -21,36 +21,23 @@ primer:
 
   - title: Deck legality
     body: >-
-      We follow the same banlist and card pool as the wider cEDH community.
-      If you're unsure whether a card or combo is legal, ask in Discord
+      We follow the same banlist and card pool as commander at large. 
+      If you're unsure whether a card or combo is legal, ask in Discord 
       before the event rather than at the table.
 
 faq:
   - question: Do I need an existing cEDH deck to come along?
     answer: >-
-      No — bring whatever you've got, even a first attempt. Playing against
-      genuinely competitive pods is the fastest way to find the weak points
-      in a decklist.
+      No, and if you dont have a deck, dont worry! We have spares to lend 
+      and are more than welcome to help new players navigate through the scene
 
   - question: Is there an entry fee?
     answer: >-
-      This section is a placeholder — the organisers will confirm entry
-      costs (if any) per event in the Discord.
-
-  - question: Where do sessions happen?
-    answer: >-
-      Each standing session is listed in the Sessions section on the home
-      page, with a link to the venue's site, a link to its Google Maps
-      pin, and the Discord channel for that group.
-
-  - question: How do I get involved as an organiser?
-    answer: >-
-      Say hello in Discord — we're always happy to hear from people who
-      want to help run sessions or judge.
+      TAll our meet ups nights are free, Events will have sign up fees, but 
+      the fees go into the prize pool and costs of running the league.
 
 doc:
-  label: Open the rules doc
-  url: "https://docs.google.com/document/d/1UqtFnYyeLiLrMHHbe2wfMZShzag6MD35rDeuzZjsS5A/edit?tab=t.0"
+  label: New Player Guide
+  url: "https://docs.google.com/document/d/119o66Gg4N0jfdt2AkF3JuU7t1sH1jI0S_-ojLXocfqw/edit?tab=t.0"
   note: >-
-    The full ruleset, banlist notes, and tournament structure live in this
-    doc. It's the source of truth if anything here is out of date.
+    Our detailed rules doc is available here if you want to read a more comprehensive format/rules primer
