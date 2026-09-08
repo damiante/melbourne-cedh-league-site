@@ -49,7 +49,7 @@ sessions:
       url: "https://maps.app.goo.gl/f7SseT2kRfChL7ki7"
     logo: "assets/grand-j-games.webp"
     logo_alt: "The logo for Grand J Games"
-  - time: Wednesday, 5:00pm - 10:00pm
+  - time: Wednesday, 6:00pm - 10:00pm
     title: Shuffle 'n' Cut Wednesdays
     description: >-
       Wednesday evening cEDH
@@ -61,10 +61,10 @@ sessions:
       url: "https://maps.app.goo.gl/Wh88odr87h8g5FQB9"
     logo: "assets/shuffle-n-cut.png"
     logo_alt: "The logo for Shuffle 'n' Cut Hobbies & Games"
-  - time: Thursday, 5:00pm - 10:00pm
-    title: Games Portal Thursdays
+  - time: Wednesday, 5:00pm - 10:00pm
+    title: Games Portal Wednesdays
     description: >-
-      Thursday evening cEDH
+      The other Wednesday evening cEDH
     location:
       name: Games Portal
       url: "https://gamesportal.com.au/"
