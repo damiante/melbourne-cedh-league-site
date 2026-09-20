@@ -21,6 +21,13 @@ Then open `http://localhost:8000`.
 Everything editable lives in `content/*.yaml`. Edit a file, commit, push —
 the page re-renders from it on load (no build/regeneration step required).
 
+- **`content/season.yaml`** — the season announcement section (landing
+  page, between the hero and "The League"): `heading`, `cta` (`{ label,
+  url }`, a large button shown right under the heading, linking to the
+  event/sign-up page), `intro`, `details` (a list of `{ label, value }`
+  pairs shown as a stat strip — dates, admission, location), `blocks` (a
+  list of `{ title, body }`, same shape as the About blocks), and
+  `caution` (`{ label, body }`) for the ELO-decay warning callout.
 - **`content/description.yaml`** — the "The League" (About) section. A list
   of `{ title, body }` blocks, rendered in order. Add or remove blocks freely.
 - **`content/contact.yaml`** — the "Contact" section: `{ heading, body,
@@ -83,5 +90,6 @@ for stat-label/utility text (nav, dates, handles) — loaded from Google Fonts.
 
 ## Pages
 
-- `index.html` — The League (about), Contact, Sessions (standing weekly slots).
+- `index.html` — Season announcement, The League (about), Contact, Sessions
+  (standing weekly slots).
 - `info.html` — Format Primer, FAQ, and the rules-doc button.

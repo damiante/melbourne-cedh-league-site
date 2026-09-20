@@ -1,0 +1,46 @@
+# Season announcement section content (shown between the hero and "The
+# League"). Write body text as folded scalars (">-") so long lines join
+# into a flowing paragraph rather than forcing line breaks on the page.
+
+heading: Welcome to the League Season 3
+
+# CTA button shown under the heading, before the intro paragraph.
+cta:
+  label: Sign Up Now
+  url: "https://topdeck.gg/event/mcl-league-season-3"
+
+intro: >-
+  Have you ever wanted to have your cEDH games potentially count for
+  something? Have you ever wished tournaments had way more rounds and
+  wanted to engage with a way to play cEDH that was longform? Have you
+  ever thought "It would be nice if I got prizes potentially for just
+  playing games that I was going to play anyway!?" Well, look no further!
+  We now have a cEDH League happening in Melbourne!
+
+details:
+  - label: Dates
+    value: 21st of September to 26th of October
+  - label: Admission
+    value: $10 via Topdeck app
+  - label: Where
+    value: Weekly meet-ups and online via the MCL webcam discord
+
+blocks:
+  - title: Format
+    body: >-
+      cEDH League is an ELO focused tournament. Before a game begins, the
+      pod registers the game on Top Deck, and each player puts forward a
+      percentage of points. The winner will take the points, if the game
+      comes to a draw, the points are divided equally.
+
+  - title: Prizes
+    body: >-
+      After the season comes to an end, the Top Cut will be identified and
+      will battle it off. The prize pool will be shared amongst the Top 4
+      accordingly.
+
+caution:
+  label: Caution
+  body: >-
+    ELO decay will take place after a week of inactivity, losing you 5% of
+    your points each day past a week of inactivity.

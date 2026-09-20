@@ -34,6 +34,61 @@
     });
   }
 
+  function renderSeason(data) {
+    const root = document.getElementById("season-content");
+    if (!root) return;
+    root.innerHTML = "";
+    const season = data || {};
+
+    root.appendChild(el("h2", { className: "section-title", text: season.heading || "" }));
+
+    const cta = season.cta;
+    if (cta && cta.label && cta.url) {
+      const link = el("a", { className: "btn btn-primary season-cta", text: cta.label });
+      link.href = cta.url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      root.appendChild(link);
+    }
+
+    if (season.intro) {
+      root.appendChild(el("p", { className: "season-intro", text: season.intro.trim() }));
+    }
+
+    const details = season.details || [];
+    if (details.length) {
+      const list = el("ul", { className: "season-details" });
+      list.setAttribute("role", "list");
+      details.forEach(function (item) {
+        const row = el("li", { className: "season-detail" });
+        row.appendChild(el("p", { className: "season-detail-label", text: item.label || "" }));
+        row.appendChild(el("p", { className: "season-detail-value", text: item.value || "" }));
+        list.appendChild(row);
+      });
+      root.appendChild(list);
+    }
+
+    const blocks = season.blocks || [];
+    if (blocks.length) {
+      const grid = el("div", { className: "about-grid season-blocks" });
+      blocks.forEach(function (block) {
+        const node = el("div", { className: "about-block" });
+        node.appendChild(el("h3", { text: block.title || "" }));
+        node.appendChild(el("p", { text: block.body || "" }));
+        grid.appendChild(node);
+      });
+      root.appendChild(grid);
+    }
+
+    const caution = season.caution;
+    if (caution && caution.body) {
+      const box = el("div", { className: "season-caution" });
+      box.appendChild(el("p", { className: "season-caution-label", text: caution.label || "Caution" }));
+      box.appendChild(el("p", { text: caution.body }));
+      root.appendChild(box);
+    }
+  }
+
   function renderContact(data) {
     const root = document.getElementById("contact-content");
     if (!root) return;
@@ -173,6 +228,9 @@
   }
 
   const tasks = [];
+  if (document.getElementById("season-content")) {
+    tasks.push(fetchYaml("content/season.yaml").then(renderSeason));
+  }
   if (document.getElementById("about-content") || document.getElementById("contact-content") || document.getElementById("sessions-list")) {
     tasks.push(
       fetchYaml("content/description.yaml").then(renderAbout),
@@ -192,6 +250,7 @@
 
   Promise.all(tasks).catch(function (err) {
     console.error(err);
+    showError("season-content", "Couldn't load content — check the console.");
     showError("about-content", "Couldn't load content — check the console.");
     showError("contact-content", "Couldn't load content — check the console.");
     showError("sessions-list", "Couldn't load content — check the console.");
