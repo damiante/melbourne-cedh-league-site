@@ -42,5 +42,5 @@ blocks:
 caution:
   label: Caution
   body: >-
-    ELO decay will take place after a week of inactivity, losing you 5% of
-    your points each day past a week of inactivity.
+    ELO decay will take place after a week of inactivity, losing you 5% of 
+    your points over the starting amount of 1000 each day.
